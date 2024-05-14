@@ -1,0 +1,490 @@
+
+@font-face {
+    font-family: 'Core';
+    src: url('../fonts/CoreSansA45Regular.otf');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Core';
+}
+.choose_screen_size{
+    display: flex;
+    background-color: rgb(245, 245, 245);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+.choose_screen_size div{
+    width: 100%;
+}
+.view_labels{
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+.view_labels.active{
+    background-color: rgb(4, 219, 4);
+    color: #fff;
+}
+.upload_content{
+    background-color: rgb(245, 245, 245);
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upload_label{
+    cursor: pointer;
+    color: #0d6efd;
+    text-decoration: underline;
+}
+#mobile_preview,#desk_preview{
+    height: 100%;
+    position: relative  ;
+}
+#mobile_preview.active,#desk_preview.active{
+    width: 100%;
+}
+#mobile_preview img,#desk_preview img{  
+    /* height: 100%; */
+    position: relative  ;
+}
+#create_task,#create_task_desk{
+    display:none;
+    position: absolute;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    width: 300px;
+    z-index: 11;
+}
+label[for="red_color"],
+label[for="red_color_desk"]
+{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    margin: 0px;
+}
+label[for="green_color"],
+label[for="green_color_desk"]
+{
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    border-radius: 50%;
+    margin: 0px;
+}
+label[for="yellow_color"],
+label[for="yellow_color_desk"]{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(235, 235, 0);
+    border-radius: 50%;
+    margin: 0px;
+}
+label[for="sky_blue_color"],
+label[for="sky_blue_color_desk"]{
+    width: 30px;
+    height: 30px;
+    background-color: skyblue;
+    border-radius: 50%;
+    margin: 0px;
+}
+.color_label.active{
+    border: 2px solid rgb(66, 66, 66);
+}
+.create_task_btn,.create_task_btn_desk{
+    background-color: rgb(4, 219, 4);
+    color: #fff;
+}
+.btn-close{
+    position: absolute;
+    top: 19px;
+    right: 10px;
+}
+.line_height_normal{
+    line-height: normal !important;
+}
+.input-group-text{
+    background-color: transparent !important;
+    border-left: none !important;
+}
+.border_right_0{
+    border-right: none !important;  
+}
+.form-control:focus{
+    outline: none !important;
+    border: none !important;  
+}
+.create_checkpoints{
+    display: flex;
+    gap: 5px;
+}
+/* .create_checkpoints .icon{
+    font-size: 30px;
+    background-color: rgb(241, 241, 241);
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+} */
+.add_checkpoints,.add_checkpoints_desk{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add_checkpoints a,
+.add_checkpoints_desk a
+{
+    color: rgb(4, 219, 4) !important;
+}
+.remove_checkpoints{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.remove_checkpoints a{
+    color: red !important;
+}
+.issue_mark{
+    /*background-color: rgb(4, 219, 4);*/
+    color: #fff;
+    /* padding: 10px; */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.tastList{
+    list-style: none;
+}
+.tastList li{
+    list-style: none;
+    background-color: rgb(245, 245, 245);
+    padding:    7px;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.task_number{
+    background-color: red;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-weight: 800;
+}
+.taskTitle{
+    font-size: 14px;
+}
+.dates{
+    font-size: 14px;
+    font-weight: 500;
+}
+.taskId{
+    font-size: 12px;
+}
+.newTaskBtn{
+    background-color: transparent;
+    border: none;
+    background-color: pink;
+    height: fit-content;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-right: 10px;
+}
+.newTaskBtn .side_icon{
+    background-color: #fff;
+    color: gray;
+    font-size: 14px;
+    border-radius: 3px 0px 0px 3px;
+}
+.dot_icon{
+    font-size: 5px;
+    padding: 0px 4px;
+}
+.checkpointBtn{
+    background-color: transparent;
+    border: none;
+    background-color: red   ;
+    height: fit-content;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 5px 3px 3px 5px;
+    font-size: 13px;    
+}
+.checkpointBtn .side_icon{
+    background-color: #fff;
+    color:red;
+    font-size: 17px;
+    border-radius: 3px 0px 0px 3px;
+}
+.hori_dots{
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+.drag_resize_square,.drag_resize_square_desk{
+    position: absolute;
+    cursor: move;
+    display: inline-block;
+    border:3px solid  red;
+    top: 82px;
+    width: 100px;
+    left: 105px;
+    height: 100px;
+    z-index: 10;
+}
+.drag_resize_circle,.drag_resize_circle_desk{
+    position: absolute;
+    cursor: move;
+    display: inline-block;
+    border:3px solid  red;
+    top: 82px;
+    width: 100px;
+    left: 105px;
+    height: 100px;
+    z-index: 10;
+    border-radius: 50%;
+}
+.ui-wrapper{
+    overflow: visible !important;
+}
+.drag_resize_pointer,.drag_resize_pointer_desk{
+    position: absolute !important;
+    cursor: move;
+    display: inline-block;
+    top: 82px;
+    left: 105px;
+    z-index: 10;
+    border-left: 15px solid transparent; 
+    border-right: 15px solid transparent; 
+    border-top: 30px solid red;
+    height: 0;
+    width: 0;
+
+}
+.open_create_task,.open_create_task_desk{
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-image: url('../icon/Plus.svg');
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.open_create_task.pointer,
+.open_create_task_desk.pointer{
+    top: -40px !important;
+    left: -23px !important;
+    height: 25px;
+    width: 25px;
+}
+.append_square,.append_circle,.append_pointer,.delete_mark,.save_mark{
+    cursor: pointer;
+    font-size: 30px !important  ;
+    padding-top: 0px;
+    color: rgb(4, 219, 4);
+    height: 32px;
+    width: 32px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.append_square_desk,.append_circle_desk,.append_pointer_desk,.delete_mark_desk,.save_mark_desk{
+    cursor: pointer;
+    font-size: 30px !important  ;
+    padding-top: 0px;
+    color: rgb(4, 219, 4);
+    height: 32px;
+    width: 32px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.append_square,.append_square_desk{
+    background-image: url('../icon/Square.svg');
+}
+.append_circle,.append_circle_desk{
+    background-image: url('../icon/Circle.svg');
+}
+.append_pointer,.append_pointer_desk{
+    background-image: url('../icon/Pointer.svg');
+}
+.delete_mark,.delete_mark_desk{
+    background-image: url('../icon/Close.svg');
+}
+.save_mark,.save_mark_desk{
+    background-image: url('../icon/Save.svg');
+}
+.checkpointBtn .side_icon{
+    background-color: #fff;
+    height: 20px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkpoint_icon{
+    background-image: url('../icon/Check\ Point\ icon.svg');
+    width: 10px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+.tools{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.tools .d-flex{
+    width: fit-content;
+    background-color: #fff;
+    padding: 5px 10px;
+    gap: 7px;
+    position: relative;
+    z-index: 2;
+    border-radius: 5px;
+}
+#mobile_preview.tool_active::after,
+#desk_preview.tool_active::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00000066;
+    width: 100%;
+    height: 100%;
+}
+.save_and_remove,.save_and_remove_desk{
+    display: flex ;
+    width: fit-content;
+    background-color: #fff;
+    padding: 5px 10px;
+    gap: 7px;
+    position: relative;
+    z-index: 2;
+    border-radius: 5px;
+}
+.text_field_icon{
+    background-image: url('../icon/Text\ field\ Icon.svg');
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+.text_icon{
+    background-image: url('../icon/Descrbe\ field.svg');
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+.remove_checkpoint_icon{
+    background-image: url('../icon/Remove\ fields.svg');
+    width: 22px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    margin: 0px 10px;
+}
+.add_checkpoint_icon{
+        background-image: url('../icon/Add\ More\ fields.svg');
+        width: 22px;
+        height: 25px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        margin: 0px 10px;
+
+}
+.create_checkpoint_icon{
+    background-image: url('../icon/Checkpoint.svg');
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+
+}
+.task_menu{
+    border-radius:5px;
+    border:1px solid #d9d9d9;
+    width:fit-content;
+    position:absolute;
+    width: 176px;
+    z-index: 2;
+}
+.task_menu .main_text{
+    font-size:13px;
+}
+.task_menu .sub_text{
+    font-size:11px;
+}
+.task_menu ul{
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+.task_menu ul li a{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    padding:5px 10px;
+    color:#000;
+    margin-top:0px;
+    text-decoration:none;
+    border-radius: 0px;
+    width:100%;
+
+}
+.task_menu ul li{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    padding:0px;
+    color:#000;
+    margin-top:0px;
+    text-decoration:none;
+    border-radius: 0px;
+    width:100%;
+}
+.task_menu ul li a:hover{
+    background-color:#eaeaea;
+}
